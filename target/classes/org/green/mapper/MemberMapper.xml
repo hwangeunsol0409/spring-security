@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTO Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.green.mapper.MemberMapper">
+	<select id="getList" resultType="org.green.domain.MemberVO">
+    	select * from member
+    </select>
+	<insert id="insert">
+		insert into member(num, name, br, id, pass)
+		values(member_seq.nextval, #{name}, #{br}, #{id}, #{pass})
+	</insert>
+	<select id="read" resultType="org.green.domain.MemberVO">
+		select * from tbl_gallery where gno = #{gno}
+	</select>
+	<delete id="delete"> 
+		delete from member where num = #{num}
+	</delete>
+	<update id="update">
+		update member set name = #{name},
+		br = #{br},
+		id = #{id},
+		pass = #{pass} where num = #{num}
+	</update>
+</mapper>
